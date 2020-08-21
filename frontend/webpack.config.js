@@ -5,7 +5,7 @@ module.exports = {
   mode: 'production',
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'public/dist') // We will put the compiled file into public/dist
+    path: path.resolve(__dirname, '..', 'backend', 'public') // We will put the compiled file into public/dist
   },
   module: {
     rules: [

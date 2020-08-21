@@ -1,12 +1,14 @@
 import React from 'react';
 
 const PokemonResult = ({ name, search, onClick }) => {
-  const splitName = name.split(search);
+  const regex = new RegExp(`(${search})`, 'i');
+  const splitName = name.split(regex).filter(str => str !== '');
   return (
     <h3 onClick={onClick}>
-      {splitName[0]}
-      <span className="match">{search}</span>
-      {splitName[1]}
+      {splitName.map(str => {
+        if (regex.test(str)) return <span className="match">{str}</span>
+        return str
+      })}
     </h3>
   );
 };
